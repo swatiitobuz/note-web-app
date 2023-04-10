@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+body{
+    font-family: 'Satisfy', cursive;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+#description{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.note-app {
+    padding-top: 10px;
+    
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-data{
+    margin: 2%;
+    padding: 5%;
+    border-radius: 10%;
+    background-color: #b8b8ff;
+}
+
+#edit-button{
+  align-items: center;
+  background-color: #8cb369;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.edit-button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.edit-button:hover:after {
+  transform: translate(0, 0);
+}
+
+.edit-button:active {
+  background-color: #bc4b51;
+  outline: 0;
+}
+
+.edit-button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .edit-button {
+    padding: 0 40px;
+  }
+}
+.notes{
+    border: 2px #ffd6a5;
+    background-color: #9381ff;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#header {
+    height: 50px;
+
+}
+#description {
+    height: 100px;
+    width: 70%; 
+    background-color: #f8f7ff;
+}
+#submit-button, #save-button {
+    height: 30px;
+    background-color: #ffd8be;
+}
+input {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+@media (min-width: 960px){
+    #display {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
