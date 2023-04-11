@@ -1,42 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-body{
-    font-family: 'Satisfy', cursive;
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #fefae0;
+  margin: 0;
+  padding: 0;
 }
-#description{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+p{
+ overflow-y: scroll;
+}
+
+.notes {
+  display: block;
+}
+
+.toggle-class {
+  display: none;
+}
+#description {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 .note-app {
-    padding-top: 10px;
-    
+  padding-top: 10px;
 }
-
+.expand{
+  margin-left: 90%;
+  height: 30px;
+  width: 30px;
+}
 #display {
-    display: flex;
-    flex-direction: column;
-}
-
-.notes-data{
-    margin: 2%;
-    padding: 5%;
-    border-radius: 10%;
-    background-color: #b8b8ff;
-}
-
-#edit-button{
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: #8cb369;
+  justify-content: center;
+}
+
+.notes-data {
+  margin: 2%;
+  padding: 5%;
+  border-radius: 10%;
+  background-color: #dda15e;
+  height: 15rem;
+  width: 15rem;
+}
+
+.edit-button, .save-button {
+  align-items: center;
+  background-color: #283618;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #111;
+  color: #fff;
   cursor: pointer;
   display: flex;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   height: 48px;
   justify-content: center;
@@ -62,7 +80,7 @@ body{
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
@@ -84,36 +102,132 @@ body{
     padding: 0 40px;
   }
 }
-.notes{
-    border: 2px #ffd6a5;
-    background-color: #9381ff;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+
+.delete-button {
+  background: #bc6c25;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 5px 15px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.delete-button:active {
+  opacity: .5;
+}
+.notes {
+  border: 2px #ffd6a5;
+  background-color: #606c38;
+  border-radius: 6px;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 #header {
-    height: 50px;
-
+  height: 50px;
 }
 #description {
-    height: 100px;
-    width: 70%; 
-    background-color: #f8f7ff;
+  height: 100px;
+  width: 70%;
+  background-color: #f8f7ff;
 }
-#submit-button, #save-button {
-    height: 30px;
-    background-color: #ffd8be;
+#submit-button,
+.save-button {
+  height: 50px;
+  background-color: #ffd8be;
+  color: #000000;
 }
-input {
-    margin-top: 2%;
-    margin-bottom: 2%;
+input, textarea {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: 'Noto Sans', sans-serif;
 }
-@media (min-width: 960px){
-    #display {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
+@media (min-width: 960px) {
+  #display {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+.text-right {
+  display: none;
+}
+
+.confirm {
+  width: 33.333333%;
+  padding: 15px;
+  left: 0;
+  margin-left: 33.333333%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  position: fixed;
+  box-shadow: 5px 5px 5px #000;
+  z-index: 10001;
+}
+
+.cancel, .ok {
+  background-color: rgb(126, 9, 9);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+
+}
+.ok{
+  background-color: rgb(28, 53, 195);
+}
+
+.popup {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888888;
+  width: 30%;
+  font-weight: bolder;
+}
+.popup-content button {
+  display: block;
+  margin: 0 auto;
+}
+.show {
+  display: block;
 }

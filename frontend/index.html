@@ -11,9 +11,10 @@
     <center class="note-app">
       <h1 class="app">Note Application</h1>
       <div class="content">
-        <div class="notes">
+        <img id="plus" src="./images/icons8-plus.gif" alt="plus" onclick="displayInput()">
+        <div class="notes toggle-class">
             <input id="header" type="text" placeholder="Tittle"/>
-            <input id="description" type="text" placeholder="enter the details...."/>
+            <textarea id="description" type="text" placeholder="enter the details...."></textarea>
             <input id="submit-button" type="button" value="submit" onclick="addNote()" />
         </div>
         <div id="display"></div>
@@ -22,3 +23,4 @@
     <script src="./js/main.js"></script>
   </body>
 </html>
+
