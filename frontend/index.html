@@ -9,13 +9,41 @@
   </head>
   <body>
     <center class="note-app">
-      <h1 class="app">Note Application</h1>
+      <div class="navbar">
+        <div class="logo">
+          <img class="list-icon" src="./images/icons8-list.gif" alt="note" />
+          <p class="heading">Your notes</p>
+        </div>
+        <div class="account">
+          <img
+            id="myImage"
+            src="./images/cute-rabbit-holding-carrot-cartoon-vector-icon-illustration-animal-nature-icon-isolated-flat_138676-7315.avif"
+            alt="image"
+          />
+          <p id="name">Hello Swati !!!</p>
+        </div>
+      </div>
       <div class="content">
-        <img id="plus" src="./images/icons8-plus.gif" alt="plus" onclick="displayInput()">
+        <img
+          id="plus"
+          src="./images/icons8-plus.gif"
+          alt="plus"
+          onclick="displayInput()"
+        />
         <div class="notes toggle-class">
-            <input id="header" type="text" placeholder="Tittle"/>
-            <textarea id="description" type="text" placeholder="enter the details...."></textarea>
-            <input id="submit-button" type="button" value="submit" onclick="addNote()" />
+          <p class="direction">Lets create a note</p>
+          <input id="header" type="text" placeholder="Tittle" />
+          <textarea
+            id="description"
+            type="text"
+            placeholder="enter the details...."
+          ></textarea>
+          <input
+            id="submit-button"
+            type="button"
+            value="submit"
+            onclick="addNote()"
+          />
         </div>
         <div id="display"></div>
       </div>
@@ -23,4 +51,3 @@
     <script src="./js/main.js"></script>
   </body>
 </html>
-

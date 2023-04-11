@@ -8,7 +8,6 @@ let save = document.getElementById("save-button");
 
 //display
 
-
 async function display() {
   const response = await fetch("http://localhost:5000/read", {
     method: "GET",
@@ -23,21 +22,10 @@ async function display() {
     document.getElementById(
       "display"
     ).innerHTML += `<div class="notes-data" onclick="editNote(this)">
-    <img
-      class="expand"
-      src="./images/icons8-enlarge-32.png"
-      alt="expand"
-      onclick="expand()"
-    />
     <h1 class="tittle">${response.data[i].headline}</h1>
     <p class="details">${response.data[i].description}</p>
-    <input class="edit-button" type="button" value="edit" />
-    <input
-      class="delete-button"
-      type="button"
-      value="delete"
-      onclick="showConfirmation()"
-    />
+    <div class="buttons"><img class="edit-button" src="./images/icons8-edit.gif" alt="edit">
+    <img class="delete-button" src="./images/icons8-trash-can.gif" alt="delete" onclick="showConfirmation()"></div>
     <div class="text-right confirm">
       <p class="details">Are you sure?</p>
       <button class="cancel" onclick="cancelNote()">Cancel</button>
@@ -52,6 +40,7 @@ async function display() {
       value="save"
       onclick="saveData('${response.data[i]._id}')"
     />
+    <div class="date"></div>
   </div>`;
   }
 }
@@ -82,6 +71,8 @@ async function addNote() {
   }
   displays.innerHTML = "";
   display();
+  displayInput();
+  document.getElementById("submit-button").style.display = "block";
 }
 
 //edit
@@ -93,6 +84,8 @@ async function editNote(e) {
   e.querySelector(".delete-button").style.display = "none";
   headlineText.value = e.querySelector("h1").innerText;
   contentText.value = e.querySelector("p").innerText;
+  displayInput();
+  document.getElementById("submit-button").style.display = "none";
 }
 
 //save data
@@ -123,7 +116,6 @@ async function saveData(id) {
     displays.innerHTML = "";
     display();
   }
-  document.querySelector("#submit-button").style.display = "block";
 }
 
 //delete
@@ -137,6 +129,7 @@ async function deleteNote(id) {
   headlineText.value = "";
   contentText.value = "";
   display();
+  displayInput();
 }
 
 //inputBox
@@ -152,24 +145,23 @@ function displayInput() {
 
 //confirmation
 
-
 function showConfirmation() {
   document.querySelector(".notes").classList.add("toggle-class");
   document.querySelector(".text-right").style.display = "block";
   document.querySelector(".notes").classList.add("toggle-class");
+  displayInput();
 }
-
 
 //expand
 
-function expand(){
-
-}
+function expand() {}
 
 //cancel
 
-function cancelNote(){
+function cancelNote() {
   document.querySelector(".text-right").style.display = "none";
 }
+
+//date
 
 //pop up

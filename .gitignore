@@ -1,2 +1,8 @@
 node_modules
 //backend/config.js
+<img
+      class="expand"
+      src="./images/icons8-enlarge-32.png"
+      alt="expand"
+      onclick="expand()"
+    />
