@@ -90,11 +90,9 @@ async function editNote(e) {
   console.log(e);
   e.querySelector(".edit-button").style.display = "none";
   e.querySelector(".save-button").style.display = "block";
-  e.querySelector(".delete-button").style.display = "block";
+  e.querySelector(".delete-button").style.display = "none";
   headlineText.value = e.querySelector("h1").innerText;
   contentText.value = e.querySelector("p").innerText;
-
-  displayInput();
 }
 
 //save data
@@ -124,8 +122,8 @@ async function saveData(id) {
     contentText.value = "";
     displays.innerHTML = "";
     display();
-    document.querySelector("#submit-button").style.display = "block";
   }
+  document.querySelector("#submit-button").style.display = "block";
 }
 
 //delete
@@ -139,7 +137,6 @@ async function deleteNote(id) {
   headlineText.value = "";
   contentText.value = "";
   display();
-
 }
 
 //inputBox
@@ -157,9 +154,9 @@ function displayInput() {
 
 
 function showConfirmation() {
-  displayInput();
   document.querySelector(".notes").classList.add("toggle-class");
   document.querySelector(".text-right").style.display = "block";
+  document.querySelector(".notes").classList.add("toggle-class");
 }
 
 

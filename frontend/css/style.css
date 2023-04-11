@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 body {
   font-family: 'Noto Sans', sans-serif;
-  background-color: #fefae0;
+  background-color: #ffff;
   margin: 0;
   padding: 0;
 }
@@ -40,14 +40,14 @@ p{
   margin: 2%;
   padding: 5%;
   border-radius: 10%;
-  background-color: #dda15e;
+  background-color: #d7b9d5;
   height: 15rem;
   width: 15rem;
 }
 
 .edit-button, .save-button {
   align-items: center;
-  background-color: #283618;
+  background-color: #c8b6ff;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -104,7 +104,7 @@ p{
 }
 
 .delete-button {
-  background: #bc6c25;
+  background: #441151;
   border: 2px solid #000000;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
@@ -139,7 +139,7 @@ p{
 }
 .notes {
   border: 2px #ffd6a5;
-  background-color: #606c38;
+  background-color: #ada7c9;
   border-radius: 6px;
   margin-left: 20%;
   margin-right: 20%;
