@@ -1,20 +1,24 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import { appRouter } from './route.js';
-import {username,password,cluster,dbname} from "./config.js";
+import express from "express";
+import mongoose from "mongoose";
+import { appRouter } from "./route.js";
+import { username, password, cluster, dbname } from "./config.js";
 
 const app = express();
 
-
-
 app.use(express.json());
-app.use((req,res,next)=>{
-  res.setHeader('Access-Control-Allow-Origin','*');
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "*");
-  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE,OPTIONS');
-  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");   
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,POST,PUT,PATCH,DELETE,OPTIONS"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+  );
   next();
-})
+});
 
 mongoose.connect(
   `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,

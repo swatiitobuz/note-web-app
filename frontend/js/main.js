@@ -86,6 +86,7 @@ async function editNote(e) {
   contentText.value = e.querySelector("p").innerText;
   displayInput();
   document.getElementById("submit-button").style.display = "none";
+  document.querySelector(".direction").innerText = "Let's edit";
 }
 
 //save data

@@ -1,39 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   background-color: #ffff;
   margin: 0;
   padding: 0;
 }
-p{
- overflow-y: scroll;
+p {
+  overflow-y: scroll;
 }
-.navbar{
+.navbar {
   display: flex;
   background-color: #c8b6ff;
   justify-content: space-between;
 }
-.logo, .account {
+.logo,
+.account {
   display: flex;
 }
-.account{
+.account {
   padding-right: 15px;
   flex-direction: column;
 }
-#name{
+#name {
   font-size: 0.7rem;
 }
-#plus{
+#plus {
   margin-top: 10%;
   margin-left: 78%;
 }
-.list-icon{
+.list-icon {
   margin-left: 10px;
   width: 50px;
   height: auto;
 }
-#myImage{
+#myImage {
   height: 50px;
   width: auto;
   border-radius: 50%;
@@ -41,7 +42,7 @@ p{
 }
 .heading {
   font-size: 30px;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
 }
 .notes {
   display: block;
@@ -58,7 +59,7 @@ p{
 .note-app {
   padding-top: 10px;
 }
-.expand{
+.expand {
   margin-left: 90%;
   height: 30px;
   width: 30px;
@@ -79,7 +80,8 @@ p{
   width: 15rem;
 }
 
-.edit-button, .save-button {
+.edit-button,
+.save-button {
   align-items: center;
   background-color: #c8b6ff;
   border: 2px solid #111;
@@ -165,11 +167,11 @@ p{
 .delete-button:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: #ff4742;
 }
 
 .delete-button:active {
-  opacity: .5;
+  opacity: 0.5;
 }
 .notes {
   border: 2px #ffd6a5;
@@ -195,12 +197,13 @@ p{
   background-color: #ffd8be;
   color: #000000;
 }
-input, textarea {
+input,
+textarea {
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 15px;
   border-radius: 10px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 @media (min-width: 960px) {
   #display {
@@ -228,14 +231,14 @@ input, textarea {
   z-index: 10001;
 }
 
-.cancel, .ok {
+.cancel,
+.ok {
   background-color: rgb(126, 9, 9);
   color: white;
   padding: 15px;
   border-radius: 12px;
-
 }
-.ok{
+.ok {
   background-color: rgb(28, 53, 195);
 }
 
