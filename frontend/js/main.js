@@ -1,10 +1,10 @@
-let headlineText = document.getElementById("header");
-let contentText = document.getElementById("description");
+const headlineText = document.getElementById("header");
+const contentText = document.getElementById("description");
 const displays = document.getElementById("display");
-let noteDatas = document.querySelectorAll(".notes-data");
-let tittle = document.querySelectorAll(".title");
-let details = document.querySelectorAll(".details");
-let save = document.getElementById("save-button");
+const noteDatas = document.querySelectorAll(".notes-data");
+const tittle = document.querySelectorAll(".title");
+const details = document.querySelectorAll(".details");
+const save = document.getElementById("save-button");
 
 //display
 
@@ -24,8 +24,8 @@ async function display() {
     ).innerHTML += `<div class="notes-data" onclick="editNote(this)">
     <h1 class="tittle">${response.data[i].headline}</h1>
     <p class="details">${response.data[i].description}</p>
-    <div class="buttons"><img class="edit-button" src="./images/icons8-edit.gif" alt="edit">
-    <img class="delete-button" src="./images/icons8-trash-can.gif" alt="delete" onclick="showConfirmation()"></div>
+    <div class="buttons"><img class="edit-button" src="./images/icons8-edit-30.png" alt="edit">
+    <img class="delete-button" src="./images/icons8-delete-24.png" alt="delete" onclick="showConfirmation()"></div>
     <div class="text-right confirm">
       <p class="details">Are you sure?</p>
       <button class="cancel" onclick="cancelNote()">Cancel</button>
@@ -40,7 +40,7 @@ async function display() {
       value="save"
       onclick="saveData('${response.data[i]._id}')"
     />
-    <div class="date"></div>
+    <p class="date-time"></p>
   </div>`;
   }
 }
@@ -49,8 +49,9 @@ display();
 //addNote
 
 async function addNote() {
-  if (headlineText.value.trim().length === 0) {
-    alert("please enter a note");
+  if (headlineText.value.trim().length === 0 ||
+  contentText.value.trim().length === 0) {
+    toast("Please add note");
   } else {
     await fetch("http://localhost:5000/create", {
       method: "POST",
@@ -64,10 +65,10 @@ async function addNote() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         headlineText.value = "";
         contentText.value = "";
       });
+      toast("Added successfully");
   }
   displays.innerHTML = "";
   display();
@@ -78,7 +79,6 @@ async function addNote() {
 //edit
 
 async function editNote(e) {
-  console.log(e);
   e.querySelector(".edit-button").style.display = "none";
   e.querySelector(".save-button").style.display = "block";
   e.querySelector(".delete-button").style.display = "none";
@@ -96,10 +96,9 @@ async function saveData(id) {
     headlineText.value.trim().length === 0 ||
     contentText.value.trim().length === 0
   ) {
-    alert("please edit properly");
+    toast("Please edit properly");
   } else {
     let editApi = "http://localhost:5000/" + id;
-    console.log(editApi);
     await fetch(editApi, {
       method: "PATCH",
       body: JSON.stringify({
@@ -109,14 +108,16 @@ async function saveData(id) {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    }).then((response) => response.json());
     headlineText.value = "";
     contentText.value = "";
     displays.innerHTML = "";
     display();
+    toast("updated successfully");
   }
+  document.getElementById("submit-button").style.display = "block";
+  document.querySelector(".direction").innerText = "Let's create a note";
+  
 }
 
 //delete
@@ -131,6 +132,9 @@ async function deleteNote(id) {
   contentText.value = "";
   display();
   displayInput();
+  document.getElementById("submit-button").style.display = "block";
+  document.querySelector(".direction").innerText = "Let's create a note";
+  toast("deleted successfully");
 }
 
 //inputBox
@@ -153,16 +157,22 @@ function showConfirmation() {
   displayInput();
 }
 
-//expand
-
-function expand() {}
-
 //cancel
 
 function cancelNote() {
   document.querySelector(".text-right").style.display = "none";
 }
 
-//date
+//date-time
+// function timeDate(){
+//   let date = new Date().toLocaleDateString();
+//   document.querySelector(".date-time").innerText = date;
+// }
+// timeDate()
 
-//pop up
+function toast(value){
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  x.innerText = value
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+}

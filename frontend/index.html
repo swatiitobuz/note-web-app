@@ -11,15 +11,11 @@
     <center class="note-app">
       <div class="navbar">
         <div class="logo">
-          <img class="list-icon" src="./images/icons8-list.gif" alt="note" />
+          <img class="note-icon" src="./images/icons8-note-50.png" alt="notes">
           <p class="heading">Your notes</p>
         </div>
         <div class="account">
-          <img
-            id="myImage"
-            src="./images/cute-rabbit-holding-carrot-cartoon-vector-icon-illustration-animal-nature-icon-isolated-flat_138676-7315.avif"
-            alt="image"
-          />
+          <img id="myImage" src="./images/icons8-user-48.png" alt="image" />
           <p id="name">Hello Swati !!!</p>
         </div>
       </div>
@@ -30,13 +26,15 @@
           alt="plus"
           onclick="displayInput()"
         />
+        <p class="add-note">add note</p>
         <div class="notes toggle-class">
           <p class="direction">Lets create a note</p>
-          <input id="header" type="text" placeholder="Tittle" />
+          <input id="header" type="text" placeholder="Tittle" required/>
           <textarea
             id="description"
             type="text"
             placeholder="Enter the details...."
+            required
           ></textarea>
           <input
             id="submit-button"
@@ -47,6 +45,7 @@
         </div>
         <div id="display"></div>
       </div>
+      <div id="snackbar">hiii</div>
     </center>
     <script src="./js/main.js"></script>
   </body>
